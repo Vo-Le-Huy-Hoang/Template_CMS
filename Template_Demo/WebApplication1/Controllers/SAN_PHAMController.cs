@@ -118,6 +118,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+          
             SAN_PHAM sAN_PHAM = db.SAN_PHAM.Find(id);
             db.SAN_PHAM.Remove(sAN_PHAM);
             db.SaveChanges();
