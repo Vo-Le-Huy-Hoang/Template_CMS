@@ -105,7 +105,7 @@
                                     <div class="cart_count"><span>#</span></div>
                                 </div>
                                 <div class="cart_content">
-                                    <div class="cart_text"><a href="~/Shared/CMScart">Giỏ Hàng</a></div>
+                                    <div class="cart_text"><a href="@Url.Action("Cart","Home")">Giỏ Hàng</a></div>
                                     <div class="cart_price">#</div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
 
                         <div class="main_nav_menu ml-auto">
                             <ul class="standard_dropdown main_nav_dropdown">
-                                <li><a href="#">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
+                                <li><a href="@Url.Action("Index","Home")">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
 
                                 <li class="hassubs">
                                     <a href="#">Thương Hiệu<i class="fas fa-chevron-down"></i></a>
@@ -298,7 +298,7 @@
                 <div class="col-lg-3 footer_col">
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">MCS</a></div>
+                            <div class="logo"><a href="@Url.Action("Index","Home")">MCS</a></div>
                         </div>
                         <div class="footer_title"></div>
                         <div class="footer_phone"></div>

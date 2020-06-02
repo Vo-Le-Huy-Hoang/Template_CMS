@@ -428,6 +428,7 @@
     <Content Include="Views\SAN_PHAM\Details.cshtml" />
     <Content Include="Views\SAN_PHAM\Edit.cshtml" />
     <Content Include="Views\SAN_PHAM\Index.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
     <None Include="Views\Shared\CMSindex.cshtml" />
     <Content Include="styles\blog_responsive.css" />
     <Content Include="styles\blog_single_responsive.css" />
