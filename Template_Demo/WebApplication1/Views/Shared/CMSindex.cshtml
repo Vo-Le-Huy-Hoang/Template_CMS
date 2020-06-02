@@ -37,8 +37,8 @@
 
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="@Url.Content("~/images/user.svg")" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a href="#">Sign in</a></div>
+                                <div> @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                                <div><a href="@Url.Action("Login", "Account")">Login</a></div>
                             </div>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="@Url.Content("~/js/jquery-3.3.1.min.js")"></script>
     <script src="@Url.Content("~/styles/bootstrap4/popper.js")"></script>
@@ -361,8 +361,8 @@
     <script src="@Url.Content("~/plugins/easing/easing.js")"></script>
     <script src="@Url.Content("~/js/custom.js")"></script>
 
-   
 
+    @RenderSection("scripts", required: false)
 
 </body>
 
