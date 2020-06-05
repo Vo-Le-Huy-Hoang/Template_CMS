@@ -299,5 +299,102 @@
       <End Role="NHA_VAN_CHUYEN" EntitySet="NHA_VAN_CHUYEN" />
       <End Role="NHAN_VIEN_VAN_CHUYEN" EntitySet="NHAN_VIEN_VAN_CHUYEN" />
     </AssociationSet>
+    <EntitySet Name="AspNetRoles" EntityType="CsK24T11Model.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="CsK24T11Model.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="CsK24T11Model.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="CsK24T11Model.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="AspNetUserClaims" Role="AspNetUserClaim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="AspNetUserLogins" Role="AspNetUserLogin" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="CsK24T11Model.AspNetUserRoles">
+      <End EntitySet="AspNetRoles" Role="AspNetRole" />
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUsers" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ClaimType" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ClaimValue" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ProviderKey" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Email" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="EmailConfirmed" Nullable="false" Type="Boolean" />
+    <Property Name="PasswordHash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="SecurityStamp" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PhoneNumber" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PhoneNumberConfirmed" Nullable="false" Type="Boolean" />
+    <Property Name="TwoFactorEnabled" Nullable="false" Type="Boolean" />
+    <Property Name="LockoutEndDateUtc" Precision="3" Type="DateTime" />
+    <Property Name="LockoutEnabled" Nullable="false" Type="Boolean" />
+    <Property Name="AccessFailedCount" Nullable="false" Type="Int32" />
+    <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="CsK24T11Model.AspNetUser" Multiplicity="1" Role="AspNetUser">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CsK24T11Model.AspNetUserClaim" Multiplicity="*" Role="AspNetUserClaim" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="CsK24T11Model.AspNetUser" Multiplicity="1" Role="AspNetUser">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CsK24T11Model.AspNetUserLogin" Multiplicity="*" Role="AspNetUserLogin" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="CsK24T11Model.AspNetRole" Multiplicity="*" Role="AspNetRole" />
+    <End Type="CsK24T11Model.AspNetUser" Multiplicity="*" Role="AspNetUser" />
+  </Association>
 </Schema>
