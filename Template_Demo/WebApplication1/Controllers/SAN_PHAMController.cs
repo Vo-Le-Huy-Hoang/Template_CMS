@@ -10,6 +10,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    
     public class SAN_PHAMController : Controller
     {
         private CsK24T11Entities db = new CsK24T11Entities();
@@ -64,28 +65,25 @@ namespace WebApplication1.Controllers
         }
 
         // GET: SAN_PHAM/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SAN_PHAM sAN_PHAM = db.SAN_PHAM.Find(id);
-            if (sAN_PHAM == null)
+            
+            SAN_PHAM model = db.SAN_PHAM.Find(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_LoaiSP = new SelectList(db.LOAI_SAN_PHAM, "ID_LoaiSP", "TenLoaiSP", sAN_PHAM.ID_LoaiSP);
-            ViewBag.ID_NCC = new SelectList(db.NHA_CUNG_CAP, "ID_NCC", "TenNhaCC", sAN_PHAM.ID_NCC);
-            return View(sAN_PHAM);
+            ViewBag.ID_LoaiSP = new SelectList(db.LOAI_SAN_PHAM, "ID_LoaiSP", "TenLoaiSP", model.ID_LoaiSP);
+            ViewBag.ID_NCC = new SelectList(db.NHA_CUNG_CAP, "ID_NCC", "TenNhaCC", model.ID_NCC);
+            return View(model);
         }
 
         // POST: SAN_PHAM/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_SP,ID_NCC,ID_LoaiSP,TenSP,MoTa,IMAGE")] SAN_PHAM sAN_PHAM)
+        public ActionResult Edit( SAN_PHAM sAN_PHAM)
         {
             if (ModelState.IsValid)
             {
