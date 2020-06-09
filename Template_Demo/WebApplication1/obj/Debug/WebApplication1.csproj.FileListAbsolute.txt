@@ -533,8 +533,8 @@ D:\Template_MCS\Template_Demo\WebApplication1\bin\Microsoft.Owin.Security.Twitte
 D:\Template_MCS\Template_Demo\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Template_MCS\Template_Demo\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Template_MCS\Template_Demo\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
