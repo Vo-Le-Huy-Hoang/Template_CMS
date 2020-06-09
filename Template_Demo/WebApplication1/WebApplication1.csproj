@@ -170,8 +170,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\AspNetRoleUserController.cs" />
     <Compile Include="Controllers\AspNetRolesController.cs" />
+=======
+    <Compile Include="Controllers\CHI_TIET_HOA_DONController.cs" />
+>>>>>>> master
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SAN_PHAMController.cs" />
@@ -442,6 +446,7 @@
     <Content Include="Views\SAN_PHAM\Details.cshtml" />
     <Content Include="Views\SAN_PHAM\Edit2.cshtml" />
     <Content Include="Views\SAN_PHAM\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\SAN_PHAM\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Create.cshtml" />
     <Content Include="Views\AspNetRoles\Delete.cshtml" />
@@ -449,6 +454,14 @@
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\AspNetRoleUser\Create.cshtml" />
+=======
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\CHI_TIET_HOA_DON\Create.cshtml" />
+    <Content Include="Views\CHI_TIET_HOA_DON\Delete.cshtml" />
+    <Content Include="Views\CHI_TIET_HOA_DON\Details.cshtml" />
+    <Content Include="Views\CHI_TIET_HOA_DON\Edit.cshtml" />
+    <Content Include="Views\CHI_TIET_HOA_DON\Index.cshtml" />
+>>>>>>> master
     <None Include="Views\Shared\CMSindex.cshtml" />
     <Content Include="styles\blog_responsive.css" />
     <Content Include="styles\blog_single_responsive.css" />
