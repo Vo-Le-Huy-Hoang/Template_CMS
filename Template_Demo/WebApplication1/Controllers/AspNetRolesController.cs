@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     public class AspNetRolesController : Controller
     {
         private CsK24T11Entities db = new CsK24T11Entities();
-
+        
         // GET: AspNetRoles
         public ActionResult Index()
         {
