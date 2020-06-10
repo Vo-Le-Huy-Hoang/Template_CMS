@@ -1,66 +1,84 @@
-﻿@model WebApplication1.Models.SAN_PHAM
+﻿e  @model WebApplication1.Models.SAN_PHAM
 
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+<style>
+    ul.cat_menu {
+        display: none !important;
+    }
 
+    .cat_menu_container:hover ul.cat_menu {
+        display: block !important;
+    }
+</style>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","SAN_PHAM", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>SAN_PHAM</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_NCC, "ID_NCC", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_NCC", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_NCC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID_LoaiSP, "ID_LoaiSP", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_LoaiSP", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_LoaiSP, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IMAGE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IMAGE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+<div class="form-horizontal">
+    <h4>SAN_PHAM</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ID_NCC, "ID_NCC", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ID_NCC", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_NCC, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ID_LoaiSP, "ID_LoaiSP", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ID_LoaiSP", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_LoaiSP, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            
+            @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control"})
+            @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class ="form-group">
+        <lable class ="control-label col-md-2" for="IMG"> Picture</lable>
+        <div class="col-md-10">
+            <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/gif, image/jpeg, image/png"/>
+        </div>
+        <img id="Picture"/>
+    </div>
+    <!--div class="form-group">
+        @Html.LabelFor(model => model.IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IMAGE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IMAGE, "", new { @class = "text-danger" })
+        </div>
+    </!--div-->
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
@@ -69,4 +87,25 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <scrip src ="http://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></scrip>
+    <crip>
+        tinymce.init({
+            selector: 'textarea#Mota',
+            menubar: false
+        });
+        funtion readPicture(input){
+        if (input.file && input.file[0]){
+        var reader = new FileReader();
+        reader.onload = funtion (e){
+        $('img#Picture').attr('src', e.target.result)
+        $('#blah')
+        .attr('src',e.target.result)
+        .width(150)
+        .height(200);
+        };
+        reader.readAsDataURL(input.files[0]);
+        }
+        }
+    </crip>
+
 }

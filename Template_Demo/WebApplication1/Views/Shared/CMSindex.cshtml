@@ -36,9 +36,10 @@
 
 
                             <div class="top_bar_user">
-                                <div class="user_icon"><img src="@Url.Content("~/images/user.svg")" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a href="#">Sign in</a></div>
+                                <div class="user_icon"><img src="@Url.Content("~/images/user.svg")" alt=""></div> 
+                                <div>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+
+                                <div><a href="@Url.Action("Login", "Account")">Sign in</a></div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +56,7 @@
                 <!-- Logo -->
                 <div class="col-lg-2 col-sm-3 col-3 order-1">
                     <div class="logo_container">
-                        <div class="logo"><a href="#">MCS</a></div>
+                        <div class="logo"><a href="@Url.Action("index","home")">MCS</a></div>
                     </div>
                 </div>
 
@@ -191,7 +192,7 @@
 
                         <div class="main_nav_menu ml-auto">
                             <ul class="standard_dropdown main_nav_dropdown">
-                                <li><a href="#">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
+                                <li><a href="@Url.Action("index","home")">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
 
                                 <li class="hassubs">
                                     <a href="#">Thương Hiệu<i class="fas fa-chevron-down"></i></a>
@@ -305,6 +306,7 @@
 
     <!-- Footer -->
 
+<<<<<<< HEAD
 
 
     <footer class="footer">
@@ -342,6 +344,51 @@
             <div class="row">
                 <div class="col">
 
+=======
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 footer_col">
+                    <div class="footer_column footer_contact">
+                        <div class="logo_container">
+                            <div class="logo"><a href="#">MCS</a></div>
+                        </div>
+                        <div class="footer_title"></div>
+                        <div class="footer_phone"></div>
+                        <div class="footer_contact_text">
+                        </div>
+                        <div class="footer_social">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+    </footer>
+
+    <!-- Copyright -->
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+>>>>>>> 3a6c5ea3eead01c0b9cc1a6208d773669c8fda60
                     <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
                         <div class="copyright_content">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -362,6 +409,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     
 
     <script src="@Url.Content("~/js/jquery-3.3.1.min.js")"></script>
@@ -380,6 +428,23 @@
    
 
 
+=======
+    </div>
+
+    <script src="@Url.Content("~/js/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/styles/bootstrap4/popper.js")"></script>
+    <script src="@Url.Content("~/styles/bootstrap4/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/plugins/greensock/TweenMax.min.js")"></script>
+    <script src="@Url.Content("~/plugins/greensock/TimelineMax.min.js")"></script>
+    <script src="@Url.Content("~/plugins/scrollmagic/ScrollMagic.min.js")"></script>
+    <script src="@Url.Content("~/plugins/greensock/animation.gsap.min.js")"></script>
+    <script src="@Url.Content("~/plugins/greensock/ScrollToPlugin.min.js")"></script>
+    <script src="@Url.Content("~/plugins/OwlCarousel2-2.2.1/owl.carousel.js")"></script>
+    <script src="@Url.Content("~/plugins/slick-1.8.0/slick.js")"></script>
+    <script src="@Url.Content("~/plugins/easing/easing.js")"></script>
+    <script src="@Url.Content("~/js/custom.js")"></script>
+    @RenderSection("scripts", required: false)
+>>>>>>> 3a6c5ea3eead01c0b9cc1a6208d773669c8fda60
 </body>
 
 </html>
