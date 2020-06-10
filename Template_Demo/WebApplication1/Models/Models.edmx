@@ -166,8 +166,8 @@
           <Property Name="ID_SP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_NCC" Type="int" Nullable="false" />
           <Property Name="ID_LoaiSP" Type="int" Nullable="false" />
-          <Property Name="TenSP" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
+          <Property Name="TenSP" Type="ntext" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="2000" />
           <Property Name="IMAGE" Type="image" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -225,62 +225,6 @@
             </Principal>
             <Dependent Role="CHI_TIET_SAN_PHAM">
               <PropertyRef Name="ID_SP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -378,22 +322,6 @@
             <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
             <End Role="CHI_TIET_SAN_PHAM" EntitySet="CHI_TIET_SAN_PHAM" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
           <AssociationSet Name="FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" Association="Self.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG">
             <End Role="BANG_TAI_KHOAN_KHACH_HANG" EntitySet="BANG_TAI_KHOAN_KHACH_HANG" />
             <End Role="HOA_DON" EntitySet="HOA_DON" />
@@ -415,32 +343,159 @@
             <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CsK24T11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CsK24T11Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="CsK24T11Model.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="CsK24T11Model.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="CsK24T11Model.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="CsK24T11Model.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="CsK24T11Model.AspNetUser" />
+          <EntitySet Name="BANG_KHACH_HANG" EntityType="CsK24T11Model.BANG_KHACH_HANG" />
+          <EntitySet Name="BANG_TAI_KHOAN_KHACH_HANG" EntityType="CsK24T11Model.BANG_TAI_KHOAN_KHACH_HANG" />
+          <EntitySet Name="CHI_TIET_HOA_DON" EntityType="CsK24T11Model.CHI_TIET_HOA_DON" />
+          <EntitySet Name="CHI_TIET_SAN_PHAM" EntityType="CsK24T11Model.CHI_TIET_SAN_PHAM" />
+          <EntitySet Name="HOA_DON" EntityType="CsK24T11Model.HOA_DON" />
+          <EntitySet Name="LOAI_SAN_PHAM" EntityType="CsK24T11Model.LOAI_SAN_PHAM" />
+          <EntitySet Name="NHA_CUNG_CAP" EntityType="CsK24T11Model.NHA_CUNG_CAP" />
+          <EntitySet Name="NHA_VAN_CHUYEN" EntityType="CsK24T11Model.NHA_VAN_CHUYEN" />
+          <EntitySet Name="NHAN_VIEN_VAN_CHUYEN" EntityType="CsK24T11Model.NHAN_VIEN_VAN_CHUYEN" />
+          <EntitySet Name="QUAN_TRI_VIEN" EntityType="CsK24T11Model.QUAN_TRI_VIEN" />
+          <EntitySet Name="SAN_PHAM" EntityType="CsK24T11Model.SAN_PHAM" />
+          <EntitySet Name="sysdiagrams" EntityType="CsK24T11Model.sysdiagram" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG" Association="CsK24T11Model.FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG">
+            <End Role="BANG_TAI_KHOAN_KHACH_HANG" EntitySet="BANG_TAI_KHOAN_KHACH_HANG" />
+            <End Role="BANG_KHACH_HANG" EntitySet="BANG_KHACH_HANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" Association="CsK24T11Model.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG">
+            <End Role="BANG_TAI_KHOAN_KHACH_HANG" EntitySet="BANG_TAI_KHOAN_KHACH_HANG" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHI_TIET_HOA_DON_HOA_DON" Association="CsK24T11Model.FK_CHI_TIET_HOA_DON_HOA_DON">
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+            <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHI_TIET_HOA_DON_SAN_PHAM" Association="CsK24T11Model.FK_CHI_TIET_HOA_DON_SAN_PHAM">
+            <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+            <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHI_TIET_SAN_PHAM_SAN_PHAM" Association="CsK24T11Model.FK_CHI_TIET_SAN_PHAM_SAN_PHAM">
+            <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+            <End Role="CHI_TIET_SAN_PHAM" EntitySet="CHI_TIET_SAN_PHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOA_DON_NHA_VAN_CHUYEN" Association="CsK24T11Model.FK_HOA_DON_NHA_VAN_CHUYEN">
+            <End Role="NHA_VAN_CHUYEN" EntitySet="NHA_VAN_CHUYEN" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAN_PHAM_LOAI_SAN_PHAM" Association="CsK24T11Model.FK_SAN_PHAM_LOAI_SAN_PHAM">
+            <End Role="LOAI_SAN_PHAM" EntitySet="LOAI_SAN_PHAM" />
+            <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAN_PHAM_NHA_CUNG_CAP" Association="CsK24T11Model.FK_SAN_PHAM_NHA_CUNG_CAP">
+            <End Role="NHA_CUNG_CAP" EntitySet="NHA_CUNG_CAP" />
+            <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN" Association="CsK24T11Model.FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN">
+            <End Role="NHA_VAN_CHUYEN" EntitySet="NHA_VAN_CHUYEN" />
+            <End Role="NHAN_VIEN_VAN_CHUYEN" EntitySet="NHAN_VIEN_VAN_CHUYEN" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="CsK24T11Model.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
         <EntityType Name="BANG_KHACH_HANG">
           <Key>
             <PropertyRef Name="ID_KH" />
           </Key>
           <Property Name="ID_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BANG_TAI_KHOAN_KHACH_HANG" Relationship="Self.FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_KHACH_HANG" ToRole="BANG_TAI_KHOAN_KHACH_HANG" />
+          <NavigationProperty Name="BANG_TAI_KHOAN_KHACH_HANG" Relationship="CsK24T11Model.FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_KHACH_HANG" ToRole="BANG_TAI_KHOAN_KHACH_HANG" />
         </EntityType>
         <EntityType Name="BANG_TAI_KHOAN_KHACH_HANG">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BANG_KHACH_HANG" Relationship="Self.FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_TAI_KHOAN_KHACH_HANG" ToRole="BANG_KHACH_HANG" />
-          <NavigationProperty Name="HOA_DON" Relationship="Self.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_TAI_KHOAN_KHACH_HANG" ToRole="HOA_DON" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BANG_KHACH_HANG" Relationship="CsK24T11Model.FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_TAI_KHOAN_KHACH_HANG" ToRole="BANG_KHACH_HANG" />
+          <NavigationProperty Name="HOA_DON" Relationship="CsK24T11Model.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" FromRole="BANG_TAI_KHOAN_KHACH_HANG" ToRole="HOA_DON" />
         </EntityType>
         <EntityType Name="CHI_TIET_HOA_DON">
           <Key>
@@ -448,26 +503,26 @@
           </Key>
           <Property Name="ID_ChiTietHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_HoaDon" Type="Int32" Nullable="false" />
-          <Property Name="PRICE" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="SL" Type="Int32" Nullable="false" />
           <Property Name="GiamGia" Type="Single" />
           <Property Name="ID_SP" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="HOA_DON" Relationship="Self.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="CHI_TIET_HOA_DON" ToRole="HOA_DON" />
-          <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="CHI_TIET_HOA_DON" ToRole="SAN_PHAM" />
+          <NavigationProperty Name="HOA_DON" Relationship="CsK24T11Model.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="CHI_TIET_HOA_DON" ToRole="HOA_DON" />
+          <NavigationProperty Name="SAN_PHAM" Relationship="CsK24T11Model.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="CHI_TIET_HOA_DON" ToRole="SAN_PHAM" />
         </EntityType>
         <EntityType Name="CHI_TIET_SAN_PHAM">
           <Key>
             <PropertyRef Name="ID_CTSP" />
           </Key>
           <Property Name="ID_CTSP" Type="Int32" Nullable="false" />
-          <Property Name="Tensanpham" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Tensanpham" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Trangthai" Type="Boolean" Nullable="false" />
           <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Lienhe" Type="Int32" Nullable="false" />
           <Property Name="Mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_SP" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="CHI_TIET_SAN_PHAM" ToRole="SAN_PHAM" />
+          <NavigationProperty Name="SAN_PHAM" Relationship="CsK24T11Model.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="CHI_TIET_SAN_PHAM" ToRole="SAN_PHAM" />
         </EntityType>
         <EntityType Name="HOA_DON">
           <Key>
@@ -481,60 +536,60 @@
           <Property Name="STATUS" Type="Boolean" Nullable="false" />
           <Property Name="ID_NVC" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BANG_TAI_KHOAN_KHACH_HANG" Relationship="Self.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" FromRole="HOA_DON" ToRole="BANG_TAI_KHOAN_KHACH_HANG" />
-          <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="Self.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="HOA_DON" ToRole="CHI_TIET_HOA_DON" />
-          <NavigationProperty Name="NHA_VAN_CHUYEN" Relationship="Self.FK_HOA_DON_NHA_VAN_CHUYEN" FromRole="HOA_DON" ToRole="NHA_VAN_CHUYEN" />
+          <NavigationProperty Name="BANG_TAI_KHOAN_KHACH_HANG" Relationship="CsK24T11Model.FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG" FromRole="HOA_DON" ToRole="BANG_TAI_KHOAN_KHACH_HANG" />
+          <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="CsK24T11Model.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="HOA_DON" ToRole="CHI_TIET_HOA_DON" />
+          <NavigationProperty Name="NHA_VAN_CHUYEN" Relationship="CsK24T11Model.FK_HOA_DON_NHA_VAN_CHUYEN" FromRole="HOA_DON" ToRole="NHA_VAN_CHUYEN" />
         </EntityType>
         <EntityType Name="LOAI_SAN_PHAM">
           <Key>
             <PropertyRef Name="ID_LoaiSP" />
           </Key>
           <Property Name="ID_LoaiSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLoaiSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenLoaiSP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="LOAI_SAN_PHAM" ToRole="SAN_PHAM" />
+          <NavigationProperty Name="SAN_PHAM" Relationship="CsK24T11Model.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="LOAI_SAN_PHAM" ToRole="SAN_PHAM" />
         </EntityType>
         <EntityType Name="NHA_CUNG_CAP">
           <Key>
             <PropertyRef Name="ID_NCC" />
           </Key>
           <Property Name="ID_NCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNhaCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNhaCC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT_NCC" Type="Int32" Nullable="false" />
-          <Property Name="DiaChi_NCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email_NCC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="NHA_CUNG_CAP" ToRole="SAN_PHAM" />
+          <Property Name="DiaChi_NCC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email_NCC" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SAN_PHAM" Relationship="CsK24T11Model.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="NHA_CUNG_CAP" ToRole="SAN_PHAM" />
         </EntityType>
         <EntityType Name="NHA_VAN_CHUYEN">
           <Key>
             <PropertyRef Name="ID_NVC" />
           </Key>
           <Property Name="ID_NVC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNVC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNVC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SDT_NVC" Type="Int32" Nullable="false" />
-          <Property Name="Email_NVC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="HOA_DON" Relationship="Self.FK_HOA_DON_NHA_VAN_CHUYEN" FromRole="NHA_VAN_CHUYEN" ToRole="HOA_DON" />
-          <NavigationProperty Name="NHAN_VIEN_VAN_CHUYEN" Relationship="Self.FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN" FromRole="NHA_VAN_CHUYEN" ToRole="NHAN_VIEN_VAN_CHUYEN" />
+          <Property Name="Email_NVC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HOA_DON" Relationship="CsK24T11Model.FK_HOA_DON_NHA_VAN_CHUYEN" FromRole="NHA_VAN_CHUYEN" ToRole="HOA_DON" />
+          <NavigationProperty Name="NHAN_VIEN_VAN_CHUYEN" Relationship="CsK24T11Model.FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN" FromRole="NHA_VAN_CHUYEN" ToRole="NHAN_VIEN_VAN_CHUYEN" />
         </EntityType>
         <EntityType Name="NHAN_VIEN_VAN_CHUYEN">
           <Key>
             <PropertyRef Name="ID_NV" />
           </Key>
           <Property Name="ID_NV" Type="Int32" Nullable="false" />
-          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hoten" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="Int32" Nullable="false" />
           <Property Name="ID_NVC" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NHA_VAN_CHUYEN" Relationship="Self.FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN" FromRole="NHAN_VIEN_VAN_CHUYEN" ToRole="NHA_VAN_CHUYEN" />
+          <NavigationProperty Name="NHA_VAN_CHUYEN" Relationship="CsK24T11Model.FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN" FromRole="NHAN_VIEN_VAN_CHUYEN" ToRole="NHA_VAN_CHUYEN" />
         </EntityType>
         <EntityType Name="QUAN_TRI_VIEN">
           <Key>
             <PropertyRef Name="ID_QTV" />
           </Key>
           <Property Name="ID_QTV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username_QTV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password_QTV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username_QTV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Password_QTV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ChucVu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SAN_PHAM">
           <Key>
@@ -543,27 +598,55 @@
           <Property Name="ID_SP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_NCC" Type="Int32" Nullable="false" />
           <Property Name="ID_LoaiSP" Type="Int32" Nullable="false" />
-          <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TenSP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="Self.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_HOA_DON" />
-          <NavigationProperty Name="CHI_TIET_SAN_PHAM" Relationship="Self.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_SAN_PHAM" />
-          <NavigationProperty Name="LOAI_SAN_PHAM" Relationship="Self.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="SAN_PHAM" ToRole="LOAI_SAN_PHAM" />
-          <NavigationProperty Name="NHA_CUNG_CAP" Relationship="Self.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="SAN_PHAM" ToRole="NHA_CUNG_CAP" />
+          <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="CsK24T11Model.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_HOA_DON" />
+          <NavigationProperty Name="CHI_TIET_SAN_PHAM" Relationship="CsK24T11Model.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_SAN_PHAM" />
+          <NavigationProperty Name="LOAI_SAN_PHAM" Relationship="CsK24T11Model.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="SAN_PHAM" ToRole="LOAI_SAN_PHAM" />
+          <NavigationProperty Name="NHA_CUNG_CAP" Relationship="CsK24T11Model.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="SAN_PHAM" ToRole="NHA_CUNG_CAP" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="CsK24T11Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CsK24T11Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="CsK24T11Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CsK24T11Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BANG_KHACH_HANG_BANG_TAI_KHOAN_KHACH_HANG">
-          <End Role="BANG_TAI_KHOAN_KHACH_HANG" Type="Self.BANG_TAI_KHOAN_KHACH_HANG" Multiplicity="1" />
-          <End Role="BANG_KHACH_HANG" Type="Self.BANG_KHACH_HANG" Multiplicity="*" />
+          <End Type="CsK24T11Model.BANG_TAI_KHOAN_KHACH_HANG" Role="BANG_TAI_KHOAN_KHACH_HANG" Multiplicity="1" />
+          <End Type="CsK24T11Model.BANG_KHACH_HANG" Role="BANG_KHACH_HANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BANG_TAI_KHOAN_KHACH_HANG">
               <PropertyRef Name="ID" />
@@ -574,8 +657,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HOA_DON_BANG_TAI_KHOAN_KHACH_HANG">
-          <End Role="BANG_TAI_KHOAN_KHACH_HANG" Type="Self.BANG_TAI_KHOAN_KHACH_HANG" Multiplicity="1" />
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <End Type="CsK24T11Model.BANG_TAI_KHOAN_KHACH_HANG" Role="BANG_TAI_KHOAN_KHACH_HANG" Multiplicity="1" />
+          <End Type="CsK24T11Model.HOA_DON" Role="HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BANG_TAI_KHOAN_KHACH_HANG">
               <PropertyRef Name="ID" />
@@ -586,8 +669,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHI_TIET_HOA_DON_HOA_DON">
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="1" />
-          <End Role="CHI_TIET_HOA_DON" Type="Self.CHI_TIET_HOA_DON" Multiplicity="*" />
+          <End Type="CsK24T11Model.HOA_DON" Role="HOA_DON" Multiplicity="1" />
+          <End Type="CsK24T11Model.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HOA_DON">
               <PropertyRef Name="ID_HoaDon" />
@@ -598,8 +681,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHI_TIET_HOA_DON_SAN_PHAM">
-          <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="1" />
-          <End Role="CHI_TIET_HOA_DON" Type="Self.CHI_TIET_HOA_DON" Multiplicity="*" />
+          <End Type="CsK24T11Model.SAN_PHAM" Role="SAN_PHAM" Multiplicity="1" />
+          <End Type="CsK24T11Model.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SAN_PHAM">
               <PropertyRef Name="ID_SP" />
@@ -610,8 +693,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHI_TIET_SAN_PHAM_SAN_PHAM">
-          <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="1" />
-          <End Role="CHI_TIET_SAN_PHAM" Type="Self.CHI_TIET_SAN_PHAM" Multiplicity="*" />
+          <End Type="CsK24T11Model.SAN_PHAM" Role="SAN_PHAM" Multiplicity="1" />
+          <End Type="CsK24T11Model.CHI_TIET_SAN_PHAM" Role="CHI_TIET_SAN_PHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SAN_PHAM">
               <PropertyRef Name="ID_SP" />
@@ -622,8 +705,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HOA_DON_NHA_VAN_CHUYEN">
-          <End Role="NHA_VAN_CHUYEN" Type="Self.NHA_VAN_CHUYEN" Multiplicity="1" />
-          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <End Type="CsK24T11Model.NHA_VAN_CHUYEN" Role="NHA_VAN_CHUYEN" Multiplicity="1" />
+          <End Type="CsK24T11Model.HOA_DON" Role="HOA_DON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHA_VAN_CHUYEN">
               <PropertyRef Name="ID_NVC" />
@@ -634,8 +717,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SAN_PHAM_LOAI_SAN_PHAM">
-          <End Role="LOAI_SAN_PHAM" Type="Self.LOAI_SAN_PHAM" Multiplicity="1" />
-          <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="*" />
+          <End Type="CsK24T11Model.LOAI_SAN_PHAM" Role="LOAI_SAN_PHAM" Multiplicity="1" />
+          <End Type="CsK24T11Model.SAN_PHAM" Role="SAN_PHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAI_SAN_PHAM">
               <PropertyRef Name="ID_LoaiSP" />
@@ -646,8 +729,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SAN_PHAM_NHA_CUNG_CAP">
-          <End Role="NHA_CUNG_CAP" Type="Self.NHA_CUNG_CAP" Multiplicity="1" />
-          <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="*" />
+          <End Type="CsK24T11Model.NHA_CUNG_CAP" Role="NHA_CUNG_CAP" Multiplicity="1" />
+          <End Type="CsK24T11Model.SAN_PHAM" Role="SAN_PHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHA_CUNG_CAP">
               <PropertyRef Name="ID_NCC" />
@@ -658,8 +741,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NHAN_VIEN_VAN_CHUYEN_NHA_VAN_CHUYEN">
-          <End Role="NHA_VAN_CHUYEN" Type="Self.NHA_VAN_CHUYEN" Multiplicity="1" />
-          <End Role="NHAN_VIEN_VAN_CHUYEN" Type="Self.NHAN_VIEN_VAN_CHUYEN" Multiplicity="*" />
+          <End Type="CsK24T11Model.NHA_VAN_CHUYEN" Role="NHA_VAN_CHUYEN" Multiplicity="1" />
+          <End Type="CsK24T11Model.NHAN_VIEN_VAN_CHUYEN" Role="NHAN_VIEN_VAN_CHUYEN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHA_VAN_CHUYEN">
               <PropertyRef Name="ID_NVC" />
@@ -723,7 +806,6 @@
           <EntitySet Name="AspNetUserLogins" EntityType="CsK24T11Model.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="CsK24T11Model.AspNetUser" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-<<<<<<< HEAD
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
           </AssociationSet>
@@ -734,48 +816,24 @@
           <AssociationSet Name="AspNetUserRoles" Association="CsK24T11Model.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
-=======
-            <End EntitySet="AspNetUsers" Role="AspNetUser" />
-            <End EntitySet="AspNetUserClaims" Role="AspNetUserClaim" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End EntitySet="AspNetUsers" Role="AspNetUser" />
-            <End EntitySet="AspNetUserLogins" Role="AspNetUserLogin" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="CsK24T11Model.AspNetUserRoles">
-            <End EntitySet="AspNetRoles" Role="AspNetRole" />
-            <End EntitySet="AspNetUsers" Role="AspNetUser" />
->>>>>>> master
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-<<<<<<< HEAD
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-=======
-          <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
->>>>>>> master
           <NavigationProperty Name="AspNetUsers" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserClaim">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-<<<<<<< HEAD
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-=======
-          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ClaimType" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ClaimValue" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
->>>>>>> master
           <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserLogin">
@@ -784,22 +842,15 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-<<<<<<< HEAD
           <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-=======
-          <Property Name="LoginProvider" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="ProviderKey" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
->>>>>>> master
           <NavigationProperty Name="AspNetUser" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-<<<<<<< HEAD
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
@@ -812,36 +863,15 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-=======
-          <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="Email" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="EmailConfirmed" Nullable="false" Type="Boolean" />
-          <Property Name="PasswordHash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="SecurityStamp" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PhoneNumber" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PhoneNumberConfirmed" Nullable="false" Type="Boolean" />
-          <Property Name="TwoFactorEnabled" Nullable="false" Type="Boolean" />
-          <Property Name="LockoutEndDateUtc" Precision="3" Type="DateTime" />
-          <Property Name="LockoutEnabled" Nullable="false" Type="Boolean" />
-          <Property Name="AccessFailedCount" Nullable="false" Type="Int32" />
-          <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
->>>>>>> master
           <NavigationProperty Name="AspNetUserClaims" Relationship="CsK24T11Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="CsK24T11Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="AspNetRoles" Relationship="CsK24T11Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-<<<<<<< HEAD
           <End Type="CsK24T11Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="CsK24T11Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
-=======
-          <End Type="CsK24T11Model.AspNetUser" Multiplicity="1" Role="AspNetUser">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CsK24T11Model.AspNetUserClaim" Multiplicity="*" Role="AspNetUserClaim" />
->>>>>>> master
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
@@ -852,17 +882,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-<<<<<<< HEAD
           <End Type="CsK24T11Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="CsK24T11Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
-=======
-          <End Type="CsK24T11Model.AspNetUser" Multiplicity="1" Role="AspNetUser">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CsK24T11Model.AspNetUserLogin" Multiplicity="*" Role="AspNetUserLogin" />
->>>>>>> master
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
@@ -873,13 +896,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AspNetUserRoles">
-<<<<<<< HEAD
           <End Type="CsK24T11Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="CsK24T11Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-=======
-          <End Type="CsK24T11Model.AspNetRole" Multiplicity="*" Role="AspNetRole" />
-          <End Type="CsK24T11Model.AspNetUser" Multiplicity="*" Role="AspNetUser" />
->>>>>>> master
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -887,134 +905,193 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CsK24T11ModelStoreContainer" CdmEntityContainer="CsK24T11Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="CsK24T11Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="CsK24T11Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="CsK24T11Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="CsK24T11Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="CsK24T11Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="BANG_KHACH_HANG">
             <EntityTypeMapping TypeName="CsK24T11Model.BANG_KHACH_HANG">
               <MappingFragment StoreEntitySet="BANG_KHACH_HANG">
-                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BANG_TAI_KHOAN_KHACH_HANG">
             <EntityTypeMapping TypeName="CsK24T11Model.BANG_TAI_KHOAN_KHACH_HANG">
               <MappingFragment StoreEntitySet="BANG_TAI_KHOAN_KHACH_HANG">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHI_TIET_HOA_DON">
             <EntityTypeMapping TypeName="CsK24T11Model.CHI_TIET_HOA_DON">
               <MappingFragment StoreEntitySet="CHI_TIET_HOA_DON">
-                <ScalarProperty Name="ID_ChiTietHD" ColumnName="ID_ChiTietHD" />
-                <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
-                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
-                <ScalarProperty Name="SL" ColumnName="SL" />
-                <ScalarProperty Name="GiamGia" ColumnName="GiamGia" />
                 <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+                <ScalarProperty Name="GiamGia" ColumnName="GiamGia" />
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
+                <ScalarProperty Name="ID_ChiTietHD" ColumnName="ID_ChiTietHD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHI_TIET_SAN_PHAM">
             <EntityTypeMapping TypeName="CsK24T11Model.CHI_TIET_SAN_PHAM">
               <MappingFragment StoreEntitySet="CHI_TIET_SAN_PHAM">
-                <ScalarProperty Name="ID_CTSP" ColumnName="ID_CTSP" />
-                <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="Lienhe" ColumnName="Lienhe" />
-                <ScalarProperty Name="Mota" ColumnName="Mota" />
                 <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+                <ScalarProperty Name="Mota" ColumnName="Mota" />
+                <ScalarProperty Name="Lienhe" ColumnName="Lienhe" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
+                <ScalarProperty Name="ID_CTSP" ColumnName="ID_CTSP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOA_DON">
             <EntityTypeMapping TypeName="CsK24T11Model.HOA_DON">
               <MappingFragment StoreEntitySet="HOA_DON">
-                <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
-                <ScalarProperty Name="NgayDatHang" ColumnName="NgayDatHang" />
-                <ScalarProperty Name="NgayGiaoHang" ColumnName="NgayGiaoHang" />
-                <ScalarProperty Name="NgayChuyenHang" ColumnName="NgayChuyenHang" />
-                <ScalarProperty Name="NoiGiaoHang" ColumnName="NoiGiaoHang" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NoiGiaoHang" ColumnName="NoiGiaoHang" />
+                <ScalarProperty Name="NgayChuyenHang" ColumnName="NgayChuyenHang" />
+                <ScalarProperty Name="NgayGiaoHang" ColumnName="NgayGiaoHang" />
+                <ScalarProperty Name="NgayDatHang" ColumnName="NgayDatHang" />
+                <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOAI_SAN_PHAM">
             <EntityTypeMapping TypeName="CsK24T11Model.LOAI_SAN_PHAM">
               <MappingFragment StoreEntitySet="LOAI_SAN_PHAM">
-                <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
-                <ScalarProperty Name="TenLoaiSP" ColumnName="TenLoaiSP" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="TenLoaiSP" ColumnName="TenLoaiSP" />
+                <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHA_CUNG_CAP">
             <EntityTypeMapping TypeName="CsK24T11Model.NHA_CUNG_CAP">
               <MappingFragment StoreEntitySet="NHA_CUNG_CAP">
-                <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
-                <ScalarProperty Name="TenNhaCC" ColumnName="TenNhaCC" />
-                <ScalarProperty Name="SDT_NCC" ColumnName="SDT_NCC" />
-                <ScalarProperty Name="DiaChi_NCC" ColumnName="DiaChi_NCC" />
                 <ScalarProperty Name="Email_NCC" ColumnName="Email_NCC" />
+                <ScalarProperty Name="DiaChi_NCC" ColumnName="DiaChi_NCC" />
+                <ScalarProperty Name="SDT_NCC" ColumnName="SDT_NCC" />
+                <ScalarProperty Name="TenNhaCC" ColumnName="TenNhaCC" />
+                <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHA_VAN_CHUYEN">
             <EntityTypeMapping TypeName="CsK24T11Model.NHA_VAN_CHUYEN">
               <MappingFragment StoreEntitySet="NHA_VAN_CHUYEN">
-                <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
-                <ScalarProperty Name="TenNVC" ColumnName="TenNVC" />
-                <ScalarProperty Name="SDT_NVC" ColumnName="SDT_NVC" />
                 <ScalarProperty Name="Email_NVC" ColumnName="Email_NVC" />
+                <ScalarProperty Name="SDT_NVC" ColumnName="SDT_NVC" />
+                <ScalarProperty Name="TenNVC" ColumnName="TenNVC" />
+                <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHAN_VIEN_VAN_CHUYEN">
             <EntityTypeMapping TypeName="CsK24T11Model.NHAN_VIEN_VAN_CHUYEN">
               <MappingFragment StoreEntitySet="NHAN_VIEN_VAN_CHUYEN">
-                <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
-                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUAN_TRI_VIEN">
             <EntityTypeMapping TypeName="CsK24T11Model.QUAN_TRI_VIEN">
               <MappingFragment StoreEntitySet="QUAN_TRI_VIEN">
-                <ScalarProperty Name="ID_QTV" ColumnName="ID_QTV" />
-                <ScalarProperty Name="Username_QTV" ColumnName="Username_QTV" />
-                <ScalarProperty Name="Password_QTV" ColumnName="Password_QTV" />
                 <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="Password_QTV" ColumnName="Password_QTV" />
+                <ScalarProperty Name="Username_QTV" ColumnName="Username_QTV" />
+                <ScalarProperty Name="ID_QTV" ColumnName="ID_QTV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SAN_PHAM">
             <EntityTypeMapping TypeName="CsK24T11Model.SAN_PHAM">
               <MappingFragment StoreEntitySet="SAN_PHAM">
-                <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
-                <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
-                <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
-                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
+                <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
+                <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="CsK24T11Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
