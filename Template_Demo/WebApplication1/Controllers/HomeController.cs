@@ -10,6 +10,7 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
+            // from Nguyen Thong computer
             return View();
         }
 
