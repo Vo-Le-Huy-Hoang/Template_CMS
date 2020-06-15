@@ -445,7 +445,6 @@
     <Content Include="Views\SAN_PHAM\Create.cshtml" />
     <Content Include="Views\SAN_PHAM\Delete.cshtml" />
     <Content Include="Views\SAN_PHAM\Details.cshtml" />
-    <Content Include="Views\SAN_PHAM\Edit2.cshtml" />
     <Content Include="Views\SAN_PHAM\Index.cshtml" />
     <Content Include="Views\SAN_PHAM\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Create.cshtml" />
@@ -460,6 +459,7 @@
     <Content Include="Views\CHI_TIET_HOA_DON\Details.cshtml" />
     <Content Include="Views\CHI_TIET_HOA_DON\Edit.cshtml" />
     <Content Include="Views\CHI_TIET_HOA_DON\Index.cshtml" />
+    <Content Include="Views\SAN_PHAM\Index2.cshtml" />
     <None Include="Views\Shared\CMSindex.cshtml" />
     <Content Include="styles\blog_responsive.css" />
     <Content Include="styles\blog_single_responsive.css" />

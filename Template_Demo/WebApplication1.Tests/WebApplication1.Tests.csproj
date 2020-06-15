@@ -86,7 +86,8 @@
   <ItemGroup>
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SAN_PHAMControllerTests.cs" />
+    <Compile Include="SAN_PHAMControllerTests - Copy.cs" />
+    <Compile Include="ShoppingCartControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
