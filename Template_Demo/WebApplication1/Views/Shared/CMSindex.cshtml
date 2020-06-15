@@ -39,7 +39,10 @@
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="@Url.Content("~/images/user.svg")" alt=""></div>
                                 <div> @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
-                                <div><a href="@Url.Action("Login", "Account")">Sign In</a></div>
+
+                               
+                                    <a href="@Url.Action("Login", "Account")" class="btn header-btn">Sign in</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -129,86 +132,132 @@
 
                         <!-- Categories Menu -->
 
-                        <div class="cat_menu_container">
-                            <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-                                <div class="cat_burger"><span></span><span></span><span></span></div>
-                                <div class="cat_menu_text">Danh Mục Sản Phẩm</div>
-                            </div>
+                        <nav class="main_nav">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
 
-                            <ul class="cat_menu">
-                                <li class="hassubs">
-                                    <a href="#">Sản Phẩm<i class="fas fa-chevron-right"></i></a>
-                                    <ul>
-                                        <li class="hassubs">
-                                            <a href="#">Linh Kiện Cơ Bản<i class="fas fa-chevron-right"></i></a>
-                                            <ul>
-                                                <li><a href="#">Điện Trở<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Cuộn Cảm<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Tụ Điện<i class="fas fa-chevron-right"></i></a></li>
-                                            </ul>
-                                        <li class="hassubs">
-                                            <a href="#">Linh Kiện Bán Dẫn<i class="fas fa-chevron-right"></i></a>
-                                            <ul>
-                                                <li><a href="#">Diode<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Mosfet & Fets<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Transistor<i class="fas fa-chevron-right"></i></a></li>
-                                            </ul>
-                                        <li class="hassubs">
-                                            <a href="#">Linh Kiện Thụ Động<i class="fas fa-chevron-right"></i></a>
-                                            <ul>
-                                                <li><a href="#">Biến Trở<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Cầu Chì<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Loa - Còi Báo<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Nút nhấn - Công Tắc<i class="fas fa-chevron-right"></i></a></li>
-                                            </ul>
-                                        <li class="hassubs">
-                                            <a href="#">Led/LCD/Text<i class="fas fa-chevron-right"></i></a>
-                                            <ul>
-                                                <li><a href="#">LED 7 Thanh<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">Bóng Đèn LED<i class="fas fa-chevron-right"></i></a></li>
-                                                <li><a href="#">LED Matrix<i class="fas fa-chevron-right"></i></a></li>
-                                            </ul>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                        <div class="main_nav_content d-flex flex-row">
+
+                                            <!-- Categories Menu -->
+
+                                            <div class="cat_menu_container">
+                                                <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                                                    <div class="cat_burger"><span></span><span></span><span></span></div>
+                                                    <div class="cat_menu_text">Danh Mục Sản Phẩm</div>
+                                                </div>
+
+                                                <ul class="cat_menu">
+                                                    <li><a href="#">Tất Cả Sản Phẩm <i class="fas fa-chevron-right ml-auto"></i></a></li>
+
+                                                    <li class="hassubs">
+                                                        <a href="#">Vi Điều Khiển Nhúng<i class="fas fa-chevron-right"></i></a>
+                                                        <ul>
+
+                                                            <li><a href="#">Kit Phát Triển<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Mạch Nạp<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Vi Điều Khiển<i class="fas fa-chevron-right"></i></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="hassubs">
+                                                        <a href="#">Module Ứng Dụng<i class="fas fa-chevron-right"></i></a>
+                                                        <ul>
+
+                                                            <li><a href="#">Module RF<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Module RFID<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Module SD<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Module AGV<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Module Relay<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Module Nguồn <i class="fas fa-chevron-right"></i></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="hassubs">
+                                                        <a href="#">Cảm Biến<i class="fas fa-chevron-right"></i></a>
+                                                        <ul>
+
+                                                            <li><a href="#">Cảm Biến Nhiệt Độ<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Độ Ẩm<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Chuyễn Động<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Ánh Sáng<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Khí<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Siêu Âm <i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Từ <i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Khoảng Cách <i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Cảm Biến Âm Thanh <i class="fas fa-chevron-right"></i></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="hassubs">
+                                                        <a href="#">Linh Kiện Điện Tử<i class="fas fa-chevron-right"></i></a>
+                                                        <ul>
+
+                                                            <li><a href="#">Linh Kiện Cơ Bản<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Linh Kiện Bán Dẫn<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Linh Kiện Thụ Động<i class="fas fa-chevron-right"></i></a></li>
+                                                            <li><a href="#">Led/LCD/Text<i class="fas fa-chevron-right"></i></a></li>
+
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+                                            <!-- Main Nav Menu -->
+
+                                            <div class="main_nav_menu ml-auto">
+                                                <ul class="standard_dropdown main_nav_dropdown">
+                                                    <li><a href="@Url.Action("index","home")">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
+
+                                                    <li class="hassubs">
+                                                        <a href="#">Thương Hiệu<i class="fas fa-chevron-down"></i></a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
+                                                                <ul>
+                                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                                    <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="hassubs">
+                                                        <a href="#">Trang<i class="fas fa-chevron-down"></i></a>
+                                                        <ul>
+                                                            <li><a href="shop.html">Cửa Hàng<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="product.html">Sưu Tập<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="blog_single.html">Tin Tức<i class="fas fa-chevron-down"></i></a></li>
+                                                            <li><a href="regular.html">Liên Hệ<i class="fas fa-chevron-down"></i></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="blog.html">Tin Tức<i class="fas fa-chevron-down"></i></a></li>
+                                                    <li><a href="contact.html">Liên Hệ<i class="fas fa-chevron-down"></i></a></li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- Menu Trigger -->
+
+                                            <div class="menu_trigger_container ml-auto">
+                                                <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+                                                    <div class="menu_burger">
+                                                        <div class="menu_trigger_text">menu</div>
+                                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
 
                         <!-- Main Nav Menu -->
 
-                        <div class="main_nav_menu ml-auto">
-                            <ul class="standard_dropdown main_nav_dropdown">
-                                <li><a href="@Url.Action("Index","Home")">Trang Chủ<i class="fas  fa-chevron-down"></i></a></li>
-
-                                <li class="hassubs">
-                                    <a href="#">Thương Hiệu<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li class="hassubs">
-                                    <a href="#">Trang<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li><a href="shop.html">Cửa Hàng<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="product.html">Sưu Tập<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="blog_single.html">Tin Tức<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="regular.html">Liên Hệ<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Tin Tức<i class="fas fa-chevron-down"></i></a></li>
-                                <li><a href="contact.html">Liên Hệ<i class="fas fa-chevron-down"></i></a></li>
-                            </ul>
-                        </div>
+                       
 
                         <!-- Menu Trigger -->
 

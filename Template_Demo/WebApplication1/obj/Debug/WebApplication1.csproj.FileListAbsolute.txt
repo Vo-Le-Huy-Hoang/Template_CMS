@@ -105,3 +105,4 @@ D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.C
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache

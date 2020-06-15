@@ -27,6 +27,7 @@ namespace WebApplication1.Models
         public string TenSP { get; set; }
         public string MoTa { get; set; }
         public byte[] IMAGE { get; set; }
+        public Nullable<double> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_HOA_DON> CHI_TIET_HOA_DON { get; set; }

@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-}
 <style>
     ul.cat_menu {
         display: none !important;
@@ -11,12 +10,13 @@
 
     .cat_menu_container:hover ul.cat_menu {
         display: block !important;
- }
+    }
 </style>
-<h2>Index</h2>
+
+<h2>Products List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <a href="@Url.Action("Create")">Create New</a>
 </p>
 <table class="table">
     <tr>
@@ -38,29 +38,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IMAGE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LOAI_SAN_PHAM.TenLoaiSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NHA_CUNG_CAP.TenNhaCC)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SP }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_SP }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SP })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMAGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAI_SAN_PHAM.TenLoaiSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHA_CUNG_CAP.TenNhaCC)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_SP }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_SP }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_SP })
+            </td>
+        </tr>
+    }
 
 </table>

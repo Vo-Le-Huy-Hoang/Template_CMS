@@ -190,6 +190,7 @@
     <NavigationProperty Name="CHI_TIET_SAN_PHAM" Relationship="Self.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_SAN_PHAM" />
     <NavigationProperty Name="LOAI_SAN_PHAM" Relationship="Self.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="SAN_PHAM" ToRole="LOAI_SAN_PHAM" />
     <NavigationProperty Name="NHA_CUNG_CAP" Relationship="Self.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="SAN_PHAM" ToRole="NHA_CUNG_CAP" />
+    <Property Name="Price" Type="Double" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

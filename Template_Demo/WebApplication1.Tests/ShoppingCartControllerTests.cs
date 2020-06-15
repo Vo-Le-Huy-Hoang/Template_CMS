@@ -9,7 +9,7 @@ using System.Linq;
 namespace WebApplication1.Tests
 {
     [TestClass]
-    public class SAN_PHAMControllerTests
+    public class ShoppingCartControllerTests
     {
         [TestMethod]
         public void TestIndex()

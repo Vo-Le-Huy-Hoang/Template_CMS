@@ -172,6 +172,7 @@
     <EntitySetMapping Name="SAN_PHAM">
       <EntityTypeMapping TypeName="CsK24T11Model.SAN_PHAM">
         <MappingFragment StoreEntitySet="SAN_PHAM">
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
           <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
           <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />

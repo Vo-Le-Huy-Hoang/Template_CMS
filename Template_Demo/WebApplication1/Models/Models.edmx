@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CsK24T11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CsK24T11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -179,6 +179,7 @@
           <Property Name="TenSP" Type="ntext" Nullable="false" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="2000" />
           <Property Name="IMAGE" Type="image" />
+          <Property Name="Price" Type="float" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -426,8 +427,7 @@
             <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CsK24T11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -621,6 +621,7 @@
           <NavigationProperty Name="CHI_TIET_SAN_PHAM" Relationship="Self.FK_CHI_TIET_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_SAN_PHAM" />
           <NavigationProperty Name="LOAI_SAN_PHAM" Relationship="Self.FK_SAN_PHAM_LOAI_SAN_PHAM" FromRole="SAN_PHAM" ToRole="LOAI_SAN_PHAM" />
           <NavigationProperty Name="NHA_CUNG_CAP" Relationship="Self.FK_SAN_PHAM_NHA_CUNG_CAP" FromRole="SAN_PHAM" ToRole="NHA_CUNG_CAP" />
+          <Property Name="Price" Type="Double" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1016,6 +1017,7 @@
           <EntitySetMapping Name="SAN_PHAM">
             <EntityTypeMapping TypeName="CsK24T11Model.SAN_PHAM">
               <MappingFragment StoreEntitySet="SAN_PHAM">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
                 <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
                 <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
