@@ -25,5 +25,16 @@ namespace WebApplication1.Tests
             var db = new CsK24T11Entities();
             Assert.AreEqual(db.SAN_PHAM.Count(), Model.Count);
         }
+        [TestMethod]
+        public void TestIndex2()
+        {
+            var controller = new SAN_PHAMController();
+
+            var result = controller.Index2() as ViewResult;
+            Assert.IsNotNull(result);
+
+            var model = result.Model as List<SAN_PHAM>;
+            Assert.IsNotNull(model);
+        }
     }
 }
