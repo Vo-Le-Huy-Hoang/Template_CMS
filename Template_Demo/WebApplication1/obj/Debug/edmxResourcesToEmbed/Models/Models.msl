@@ -1,8 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CsK24T11ModelStoreContainer" CdmEntityContainer="CsK24T11Entities">
+  <EntityContainerMapping StorageEntityContainer="csk24t11ModelStoreContainer" CdmEntityContainer="CsK24T11Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="csk24t11Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="csk24t11Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="csk24t11Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="csk24t11Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="csk24t11Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="BANG_KHACH_HANG">
-      <EntityTypeMapping TypeName="CsK24T11Model.BANG_KHACH_HANG">
+      <EntityTypeMapping TypeName="csk24t11Model.BANG_KHACH_HANG">
         <MappingFragment StoreEntitySet="BANG_KHACH_HANG">
           <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
           <ScalarProperty Name="HoTen" ColumnName="HoTen" />
@@ -15,7 +70,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BANG_TAI_KHOAN_KHACH_HANG">
-      <EntityTypeMapping TypeName="CsK24T11Model.BANG_TAI_KHOAN_KHACH_HANG">
+      <EntityTypeMapping TypeName="csk24t11Model.BANG_TAI_KHOAN_KHACH_HANG">
         <MappingFragment StoreEntitySet="BANG_TAI_KHOAN_KHACH_HANG">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -24,7 +79,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CHI_TIET_HOA_DON">
-      <EntityTypeMapping TypeName="CsK24T11Model.CHI_TIET_HOA_DON">
+      <EntityTypeMapping TypeName="csk24t11Model.CHI_TIET_HOA_DON">
         <MappingFragment StoreEntitySet="CHI_TIET_HOA_DON">
           <ScalarProperty Name="ID_ChiTietHD" ColumnName="ID_ChiTietHD" />
           <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
@@ -36,7 +91,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CHI_TIET_SAN_PHAM">
-      <EntityTypeMapping TypeName="CsK24T11Model.CHI_TIET_SAN_PHAM">
+      <EntityTypeMapping TypeName="csk24t11Model.CHI_TIET_SAN_PHAM">
         <MappingFragment StoreEntitySet="CHI_TIET_SAN_PHAM">
           <ScalarProperty Name="ID_CTSP" ColumnName="ID_CTSP" />
           <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
@@ -50,7 +105,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HOA_DON">
-      <EntityTypeMapping TypeName="CsK24T11Model.HOA_DON">
+      <EntityTypeMapping TypeName="csk24t11Model.HOA_DON">
         <MappingFragment StoreEntitySet="HOA_DON">
           <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
           <ScalarProperty Name="NgayDatHang" ColumnName="NgayDatHang" />
@@ -64,7 +119,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LOAI_SAN_PHAM">
-      <EntityTypeMapping TypeName="CsK24T11Model.LOAI_SAN_PHAM">
+      <EntityTypeMapping TypeName="csk24t11Model.LOAI_SAN_PHAM">
         <MappingFragment StoreEntitySet="LOAI_SAN_PHAM">
           <ScalarProperty Name="ID_LoaiSP" ColumnName="ID_LoaiSP" />
           <ScalarProperty Name="TenLoaiSP" ColumnName="TenLoaiSP" />
@@ -74,7 +129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NHA_CUNG_CAP">
-      <EntityTypeMapping TypeName="CsK24T11Model.NHA_CUNG_CAP">
+      <EntityTypeMapping TypeName="csk24t11Model.NHA_CUNG_CAP">
         <MappingFragment StoreEntitySet="NHA_CUNG_CAP">
           <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
           <ScalarProperty Name="TenNhaCC" ColumnName="TenNhaCC" />
@@ -85,7 +140,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NHA_VAN_CHUYEN">
-      <EntityTypeMapping TypeName="CsK24T11Model.NHA_VAN_CHUYEN">
+      <EntityTypeMapping TypeName="csk24t11Model.NHA_VAN_CHUYEN">
         <MappingFragment StoreEntitySet="NHA_VAN_CHUYEN">
           <ScalarProperty Name="ID_NVC" ColumnName="ID_NVC" />
           <ScalarProperty Name="TenNVC" ColumnName="TenNVC" />
@@ -95,7 +150,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NHAN_VIEN_VAN_CHUYEN">
-      <EntityTypeMapping TypeName="CsK24T11Model.NHAN_VIEN_VAN_CHUYEN">
+      <EntityTypeMapping TypeName="csk24t11Model.NHAN_VIEN_VAN_CHUYEN">
         <MappingFragment StoreEntitySet="NHAN_VIEN_VAN_CHUYEN">
           <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
           <ScalarProperty Name="Hoten" ColumnName="Hoten" />
@@ -105,7 +160,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="QUAN_TRI_VIEN">
-      <EntityTypeMapping TypeName="CsK24T11Model.QUAN_TRI_VIEN">
+      <EntityTypeMapping TypeName="csk24t11Model.QUAN_TRI_VIEN">
         <MappingFragment StoreEntitySet="QUAN_TRI_VIEN">
           <ScalarProperty Name="ID_QTV" ColumnName="ID_QTV" />
           <ScalarProperty Name="Username_QTV" ColumnName="Username_QTV" />
@@ -115,7 +170,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SAN_PHAM">
-      <EntityTypeMapping TypeName="CsK24T11Model.SAN_PHAM">
+      <EntityTypeMapping TypeName="csk24t11Model.SAN_PHAM">
         <MappingFragment StoreEntitySet="SAN_PHAM">
           <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
           <ScalarProperty Name="ID_NCC" ColumnName="ID_NCC" />
@@ -127,7 +182,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="CsK24T11Model.sysdiagram">
+      <EntityTypeMapping TypeName="csk24t11Model.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -137,57 +192,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="CsK24T11Model.AspNetRole">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="CsK24T11Model.AspNetUserClaim">
-        <MappingFragment StoreEntitySet="AspNetUserClaims">
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="CsK24T11Model.AspNetUserLogin">
-        <MappingFragment StoreEntitySet="AspNetUserLogins">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="CsK24T11Model.AspNetUser">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="CsK24T11Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetUser">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-      <EndProperty Name="AspNetRole">
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="csk24t11Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

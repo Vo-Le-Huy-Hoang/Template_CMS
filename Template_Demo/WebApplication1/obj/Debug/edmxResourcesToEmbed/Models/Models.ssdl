@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CsK24T11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="csk24t11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
       <PropertyRef Name="Id" />
@@ -161,8 +171,8 @@
     <Property Name="ID_SP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_NCC" Type="int" Nullable="false" />
     <Property Name="ID_LoaiSP" Type="int" Nullable="false" />
-    <Property Name="TenSP" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenSP" Type="ntext" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="2000" />
     <Property Name="IMAGE" Type="image" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -339,7 +349,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CsK24T11ModelStoreContainer">
+  <EntityContainer Name="csk24t11ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
