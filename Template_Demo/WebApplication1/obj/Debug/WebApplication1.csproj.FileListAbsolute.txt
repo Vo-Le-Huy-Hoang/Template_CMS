@@ -320,3 +320,4 @@ E:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.C
 E:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 E:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.dll
 E:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.pdb
+E:\Template_MCS\Template_Demo\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
